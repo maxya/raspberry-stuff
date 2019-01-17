@@ -1,0 +1,21 @@
+#!/bin/bash
+# A basic munin-node script to monitor the Raspberry Pi temperature
+
+if [ "$1" == "autoconf" ]; then
+     if [ -e /sys/class/thermal/thermal_zone0/temp ]; then
+         echo "yes"
+     else
+         echo "no"
+         exit 1
+     fi
+elif [ "$1" == "config" ]; then
+     echo "graph_title Raspberry Pi Temperature"
+     echo "graph_vlabel Temperature in Celsius"
+     echo "graph_category Sensors"
+     echo "temp.warning 60"
+     echo "temp.critical 80"
+     echo "temp.label CPU"
+else
+     temp=$(cat /sys/class/thermal/thermal_zone0/temp)
+     awk "BEGIN { print \"temp.value \" $temp/1000 }"
+fi
