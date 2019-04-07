@@ -55,10 +55,15 @@ network={
 
 ## Camera
 
+Documentation - https://www.raspberrypi.org/app/uploads/2013/07/RaspiCam-Documentation.pdf
+
 ### Camera module
 ```
 sudo modprobe bcm2835-v4l2
 ```
+### MMAL Motion
+Get from github releases - https://github.com/Motion-Project/motion/releases
+
 
 ### VLC stream
 

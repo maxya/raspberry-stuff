@@ -1,0 +1,2 @@
+sudo -iu pi /usr/bin/screen -dmS gekko333 bash -c '/home/pi/cgminer-gekko/cgminer --suggest-diff 32 --gekko-2pac-freq 200; e
+xec bash'
