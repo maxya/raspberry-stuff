@@ -2,12 +2,12 @@
 
 ### Burn iso to SD-Card
 
-```
+```bash
 dd bs=4M if=2018-11-13-raspbian-stretch.img of=/dev/sdX status=progress conv=fsync
 ```
 
 
-### Headless setup
+### Headless setup / enable ssh access
 
 1. Create `ssh` in `/boot`
 2. Create `wpa_supplicant.conf` in `/boot`
@@ -58,15 +58,17 @@ network={
 Documentation - https://www.raspberrypi.org/app/uploads/2013/07/RaspiCam-Documentation.pdf
 
 ### Camera module
+
 ```
 sudo modprobe bcm2835-v4l2
 ```
+
 ### MMAL Motion
 Get from github releases - https://github.com/Motion-Project/motion/releases
 
 
 ### VLC stream
 
-```
+```bash
 cvlc v4l2:///dev/video0 --v4l2-width 640 --v4l2-height 480 v4l2-chroma h264 --sout  '#standard{access=http,mux=ts,dst=0.0.0.0:8082}'
 ```
